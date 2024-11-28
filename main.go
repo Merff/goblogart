@@ -1,7 +1,23 @@
 package main
 
-import "fmt"
+import (
+  "goblogart/inits"
+  "github.com/gin-gonic/gin"
+)
+
+func init() {
+  inits.LoadEnv()
+  inits.DBInit()
+}
 
 func main() {
-  fmt.Println("Hello, World!")
+  r := gin.Default()
+
+  r.GET("/", func(c *gin.Context) {
+    c.JSON(200, gin.H{
+      "message": "Hello World!",
+  	})
+ 	})
+
+  r.Run()
 }
