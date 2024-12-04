@@ -109,3 +109,9 @@ func Validate(ctx *gin.Context) {
 	}
 	ctx.JSON(200, gin.H{"data": "You are logged in!", "user": user})
 }
+
+func Logout(ctx *gin.Context) {
+  ctx.SetSameSite(http.SameSiteLaxMode)
+  ctx.SetCookie("Authorization", "", -1, "", "localhost", false, true)
+  ctx.JSON(200, gin.H{"data": "You are logged out!"})
+}
