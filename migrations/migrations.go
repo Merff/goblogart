@@ -11,8 +11,9 @@ func init() {
 }
 
 func main() {
-  err := inits.DB.AutoMigrate(&models.Post{})
-  if err != nil {
-    panic("failed to migrate table: " + err.Error())
-  }
+  inits.DB.AutoMigrate(&models.Post{})
+  inits.DB.AutoMigrate(&models.User{})
+  // if err != nil {
+  //   panic("failed to migrate table: " + err.Error())
+  // }
 }
