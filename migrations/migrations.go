@@ -13,6 +13,6 @@ func init() {
 func main() {
   err := inits.DB.AutoMigrate(&models.Post{})
   if err != nil {
-    panic("failed to create table: " + err.Error())
+    panic("failed to migrate table: " + err.Error())
   }
 }
