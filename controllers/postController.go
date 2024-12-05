@@ -25,6 +25,7 @@ func CreatePost(ctx *gin.Context) {
     ctx.JSON(500, gin.H{"error": "user not found"})
     return
   }
+
   body.UserID = user.(models.User).ID
 
   post := models.Post{Title: body.Title, Body: body.Body, Likes: body.Likes, Draft: body.Draft, Author: body.Author, UserID: body.UserID}

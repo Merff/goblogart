@@ -15,11 +15,6 @@ func init() {
 func main() {
   r := gin.Default()
 
-  // r.GET("/", func(c *gin.Context) {
-  //   c.JSON(200, gin.H{
-  //     "message": "Hello World!",
-  // 	})
- 	// })
  	r.POST("/", middlewares.RequireAuth, controllers.CreatePost)
  	r.GET("/", controllers.GetPosts)
  	r.GET("/:id", controllers.GetPost)

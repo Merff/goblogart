@@ -14,12 +14,12 @@ import (
 
 func RequireAuth(ctx *gin.Context) {
   tokenString, err := ctx.Cookie("Authorization")
-
   if err != nil {
     ctx.JSON(401, gin.H{"error": "unauthorized"})
     ctx.AbortWithStatus(http.StatusUnauthorized)
     return
   }
+
   token, err := jwt.Parse(tokenString, func(token *jwt.Token) (interface{}, error) {
     if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
       return nil, fmt.Errorf("Unexpected signing method: %v", token.Header["alg"])

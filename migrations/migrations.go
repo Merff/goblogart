@@ -13,7 +13,4 @@ func init() {
 func main() {
   inits.DB.AutoMigrate(&models.Post{})
   inits.DB.AutoMigrate(&models.User{})
-  // if err != nil {
-  //   panic("failed to migrate table: " + err.Error())
-  // }
 }
