@@ -1,10 +1,10 @@
 ## This is an application for learn golang development
 
 ### Used:
-- GIN for routing
-- godotenv for configuration
-- gorm/postgres for database
-- testify for tests
+- `GIN` for routing
+- `godotenv` for configuration
+- `gorm/postgres` for database
+- `testify` for tests
 
 ### Functionality:
 - user can register
