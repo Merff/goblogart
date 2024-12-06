@@ -44,7 +44,6 @@ func RequireAuth(ctx *gin.Context) {
     }
 
     ctx.Set("user", user)
-    fmt.Println(claims["foo"], claims["nbf"])
   } else {
     ctx.AbortWithStatus(http.StatusUnauthorized)
   }

@@ -3,8 +3,6 @@ package controllers
 import (
   "goblogart/inits"
   "goblogart/models"
-  "fmt"
-
   "github.com/gin-gonic/gin"
 )
 
@@ -30,7 +28,6 @@ func CreatePost(ctx *gin.Context) {
 
   post := models.Post{Title: body.Title, Body: body.Body, Likes: body.Likes, Draft: body.Draft, Author: body.Author, UserID: body.UserID}
 
-  fmt.Println(post)
   result := inits.DB.Create(&post)
   if result.Error != nil {
     ctx.JSON(500, gin.H{"error": result.Error})
